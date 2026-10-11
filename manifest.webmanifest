@@ -1,0 +1,20 @@
+{
+  "id": "./",
+  "name": "كش مات — شطرنج عربي",
+  "short_name": "كش مات",
+  "description": "لعبة شطرنج عربية مع خصم ذكي وتقييم فوري للنقلات.",
+  "lang": "ar",
+  "dir": "rtl",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "display_override": ["standalone", "minimal-ui"],
+  "orientation": "any",
+  "background_color": "#101a23",
+  "theme_color": "#101a23",
+  "icons": [
+    { "src": "./icons/icon-192.png", "sizes": "192x192", "type": "image/png", "purpose": "any" },
+    { "src": "./icons/icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any" }
+  ],
+  "categories": ["games", "education"]
+}

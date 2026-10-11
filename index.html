@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#101a23">
+<meta name="mobile-web-app-capable" content="yes">
+<title>كش مات — شطرنج مع تقييم ذكي</title>
+<meta name="description" content="لعبة شطرنج عربية تعمل دون اتصال، مع خصم ذكي وتقييم فوري للنقلات.">
+<link rel="manifest" href="./manifest.webmanifest">
+<link rel="icon" href="./icons/icon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="./icons/apple-touch-icon.png">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="كش مات">
+<link rel="stylesheet" href="./src/style.css">
+</head>
+<body>
+<main class="app">
+  <header class="top"><div class="brand"><div class="brand-mark">♞</div><div><h1>كش مات</h1><p>تدرّب، العب، واكتشف جودة كل نقلة</p></div></div><div class="top-badge">♙ الأبيض أنت &nbsp;·&nbsp; ♟ الأسود الخصم</div></header>
+  <div class="layout">
+    <section class="play-area">
+      <div class="player-card"><div class="player-info"><div class="avatar">♚</div><div><div class="player-name">الخصم الذكي</div><div class="player-sub" id="opponent-sub">مستوى متوسط</div></div></div><div class="captured" id="captured-black" aria-label="القطع التي خسرها الأسود"></div><div class="mobile-eval"><span id="mobile-eval-value">0.0</span><span class="eval-meter"><i id="mobile-eval-fill"></i></span></div></div>
+      <div class="board-shell"><div class="board" id="board" role="grid" aria-label="رقعة الشطرنج"></div><div class="board-footer"><span class="status-live"><i class="pulse" id="pulse"></i><span id="game-status" role="status" aria-live="polite">دورك — حرّك قطعة بيضاء</span></span><span id="turn-counter">النقلة 1</span></div></div>
+      <div class="player-card" style="margin:10px 0 0"><div class="player-info"><div class="avatar">♔</div><div><div class="player-name">أنت</div><div class="player-sub">تلعب بالقطع البيضاء</div></div></div><div class="captured" id="captured-white" aria-label="القطع التي خسرها الأبيض"></div></div>
+      <div class="controls"><button class="control-btn primary" id="new-game">لعبة جديدة</button><button class="control-btn" id="undo" title="التراجع عن آخر دور">↶ تراجع</button><button class="control-btn" id="hint">✦ اقترح نقلة</button><button class="control-btn" id="flip">⇅ اقلب الرقعة</button><button class="control-btn" id="install" hidden>⬇ ثبّت اللعبة</button><span class="desktop-only how"><span class="key">النقر</span> اختر قطعة ثم وجهتها <span class="key">Tab + الأسهم</span> للتنقل</span></div>
+    </section>
+    <aside class="side">
+      <section class="panel"><div class="panel-heading"><h2>تقييم المباراة</h2><div class="level-control"><span class="small-label">الصعوبة</span><select id="difficulty" aria-label="مستوى صعوبة الخصم"><option value="1">سهل</option><option value="2" selected>متوسط</option><option value="3">قوي</option></select></div></div><div class="eval-wrap"><div class="eval-labels"><span>♚</span><span>♔</span></div><div style="display:flex;align-items:center;justify-content:space-between;gap:10px"><div class="eval-bar"><div class="eval-fill" id="eval-fill"></div><div class="eval-mid"></div></div><div><div class="eval-value" id="eval-value">0.0</div><div class="eval-desc" id="eval-desc">الموقف متعادل</div></div></div></div><div class="grade-row"><div class="grade-icon" id="grade-icon">✦</div><div><div class="grade-text" id="grade-text">سيظهر التقييم بعد نقلتك</div><div class="grade-sub" id="grade-sub">يُقيّم المحرك نقلات الطرفين</div></div><div class="grade-pill" id="grade-pill">جاهز</div></div></section>
+      <section class="panel moves-panel"><div class="panel-heading"><h2>سجل النقلات</h2><span class="small-label" id="move-count">0 نقلة</span></div><div class="moves" id="moves"><div class="empty-moves">ابدأ المباراة بأول نقلة لك ♙</div></div></section>
+      <section class="panel"><div class="panel-heading"><h2>كيف يُقيّم المحرك؟</h2><span class="small-label">تحليل فوري</span></div><div class="hint-box">يقارن المحرك نقلتك بأفضل اختيار متاح، ثم يمنحها تقديراً. ويقيّم نقلات الخصم بالطريقة نفسها. الأرقام الموجبة تعني أفضلية للأبيض، والسالبة أفضلية للأسود.</div></section>
+    </aside>
+  </div>
+</main>
+<div class="overlay" id="promotion-overlay"><div class="dialog"><h3>ترقية البيدق</h3><p>اختر القطعة التي تريد الترقية إليها</p><div class="promotion-options" id="promotion-options"></div></div></div>
+<div class="overlay" id="end-overlay"><div class="dialog"><div class="end-icon" id="end-icon">♛</div><div class="end-title" id="end-title">انتهت المباراة</div><div class="end-sub" id="end-sub"></div><button class="control-btn primary" id="end-new">لعبة جديدة</button></div></div>
+<script type="module" src="./src/main.js"></script>
+</body>
+</html>
+
