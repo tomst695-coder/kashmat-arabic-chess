@@ -1,10 +1,11 @@
-const CACHE_NAME = "kashmat-shell-v1";
+const CACHE_NAME = "kashmat-shell-v1.0.1";
 const SHELL = [
   "./",
   "./index.html",
   "./manifest.webmanifest",
   "./src/style.css",
   "./src/chess.js",
+  "./src/engine-worker.js",
   "./src/main.js",
   "./src/pwa.js",
   "./icons/icon.svg",
