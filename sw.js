@@ -1,4 +1,4 @@
-const CACHE_NAME = "kashmat-shell-v1.0.1";
+const CACHE_NAME = "kashmat-shell-v1.0.1-r2";
 const SHELL = [
   "./",
   "./index.html",
