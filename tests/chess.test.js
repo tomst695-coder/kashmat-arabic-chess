@@ -1,6 +1,5 @@
 import test from "node:test";
-import assert from "node:assert/strict";
-import { freshState, legalMoves, makeMove, positionKey, scoreMoves, statusOf } from "../src/chess.js";
+import assert from "node:assert/strict";import { freshState, legalMoves, makeMove, positionKey, scoreMoves, statusOf, difficultyProfile, gradingProfile, gradeMove } from "../src/chess.js";
 
 function fromFen(fen) {
   const [placement, turn, castling, ep, half, full] = fen.split(" ");
@@ -89,4 +88,26 @@ test("the search returns legal moves in best-first order", () => {
   const scores = scoreMoves(freshState(), 1);
   assert.equal(scores.length, 20);
   assert.ok(scores.every((entry, index) => index === 0 || scores[index - 1].score >= entry.score));
+});
+
+
+test("the seven difficulty levels have distinct Arabic names and bounded search budgets", () => {
+  const profiles = Array.from({ length: 7 }, (_, index) => difficultyProfile(index + 1));
+  assert.deepEqual(profiles.map(profile => profile.name), ["سهل جداً", "سهل", "متوسط", "صعب", "صعب جداً", "المستحيل", "الماستر"]);
+  assert.ok(profiles.every(profile => profile.maxNodes > 0 && profile.maxTimeMs > 0));
+  assert.ok(gradingProfile(7).maxNodes <= 25000);
+});
+
+test("move evaluation exposes the eleven requested grades from best to worst", () => {
+  const losses = [0, 10, 20, 50, 80, 120, 200, 300, 500, 700, 1000];
+  assert.deepEqual(losses.map(loss => gradeMove(loss).label), [
+    "حركة مبهرة", "حركة ممتازة جداً", "حركة ممتازة", "حركة جيدة جداً", "حركة جيدة",
+    "حركة عادية", "حركة مقبولة", "حركة سيئة", "حركة سيئة جداً", "حركة فاشلة", "حركة فاشلة جداً"
+  ]);
+});
+
+test("search limits still return a score for every legal move", () => {
+  const state = freshState();
+  const scores = scoreMoves(state, 2, { maxNodes: 20, maxTimeMs: 5 });
+  assert.equal(scores.length, legalMoves(state).length);
 });
