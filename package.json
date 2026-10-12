@@ -1,6 +1,6 @@
 {
   "name": "kashmat-arabic-chess",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "لعبة شطرنج عربية قابلة للتثبيت والعمل دون اتصال على الهواتف والحواسيب.",
   "type": "module",
   "scripts": {
