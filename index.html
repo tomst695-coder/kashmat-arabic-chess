@@ -22,31 +22,81 @@
     <div class="start-hero" aria-hidden="true"><span>♜</span><span>♞</span><span>♝</span><span class="hero-queen">♛</span><span>♚</span><span>♝</span><span>♞</span><span>♜</span></div>
     <p class="eyebrow">تدرّب بذكاء، نقلة بعد نقلة</p>
     <h1 id="start-title">الشطرنج كما تحبّه،<br><em>بالعربية.</em></h1>
-    <p class="start-copy">العب ضد خصم يتدرّج من السهل جداً إلى مستوى الماستر، واكتشف تقييم كل نقلة فوراً.</p>
-    <label class="start-level" for="start-difficulty"><span>اختر مستوى خصمك</span><select id="start-difficulty" aria-label="مستوى صعوبة الخصم عند بدء اللعب"><option value="1">سهل جداً</option><option value="2">سهل</option><option value="3" selected>متوسط</option><option value="4">صعب</option><option value="5">صعب جداً</option><option value="6">المستحيل</option><option value="7">الماستر</option></select></label>
-    <div class="start-actions"><button class="control-btn primary start-cta" id="start-game">ابدأ مباراة جديدة <span aria-hidden="true">←</span></button><button class="control-btn continue-cta" id="continue-game" hidden>متابعة المباراة المحفوظة</button></div>
-    <div class="start-features"><span>♙ تقييم 11 مستوى</span><span>◉ يعمل دون اتصال</span><span>⌘ هاتف وكمبيوتر</span></div>
+    <p class="start-copy">اختر خصمك ووقت المباراة وأدوات التحليل، ثم ابدأ اللعب من أي جهاز.</p>
+    <div class="start-actions"><button class="control-btn primary start-cta" id="open-setup">تهيئة مباراة جديدة <span aria-hidden="true">←</span></button><button class="control-btn continue-cta" id="continue-game" hidden>متابعة المباراة المحفوظة</button></div>
+    <div class="start-features"><span>♙ ٧ مستويات وخصم متكيّف</span><span>◉ يعمل دون اتصال</span><span>⌘ هاتف وكمبيوتر</span></div>
   </div>
   <p class="start-footer">لعبة مجانية ومفتوحة المصدر · الإصدار 1.0.1</p>
+</section>
+<section class="setup-screen" id="setup-screen" hidden aria-labelledby="setup-title">
+  <div class="setup-card">
+    <div class="setup-top"><button class="control-btn" id="setup-back">رجوع</button><div><p class="eyebrow">إعداد المباراة</p><h1 id="setup-title">اختر خصمك وأدواتك</h1></div><span class="setup-step">١ / ٣</span></div>
+    <section class="setup-section" aria-labelledby="opponent-title">
+      <div class="setup-section-heading"><div><h2 id="opponent-title">مستوى الخصم</h2><p>اختر فئة، ثم حدّد الدرجة المناسبة لك.</p></div><span class="setup-icon">♞</span></div>
+      <div class="opponent-groups" role="group" aria-label="فئات الخصوم">
+        <button class="opponent-card" type="button" data-group="beginner" aria-pressed="false"><strong>مبتدئ</strong><span>خطواتك الأولى</span></button>
+        <button class="opponent-card" type="button" data-group="intermediate" aria-pressed="true"><strong>متوسط</strong><span>تحدٍ متوازن</span></button>
+        <button class="opponent-card" type="button" data-group="advanced" aria-pressed="false"><strong>متقدم</strong><span>لعب أعمق</span></button>
+        <button class="opponent-card" type="button" data-group="master" aria-pressed="false"><strong>أستاذ</strong><span>أقوى تحدٍّ</span></button>
+        <button class="opponent-card" type="button" data-group="adaptive" aria-pressed="false"><strong>متكيّف</strong><span>يتدرّج مع أدائك</span></button>
+      </div>
+      <label class="setup-level" for="setup-difficulty"><span>درجة الصعوبة</span><select id="setup-difficulty" aria-label="درجة صعوبة الخصم"><option value="1">سهل جداً</option><option value="2">سهل</option><option value="3" selected>متوسط</option><option value="4">صعب</option><option value="5">صعب جداً</option><option value="6">المستحيل</option><option value="7">الماستر</option></select></label>
+      <p class="setup-note" id="adaptive-note" hidden>سيزيد أو يخفّض الخصم قوته تدريجياً وفق تقييم آخر نقلاتك.</p>
+    </section>
+    <section class="setup-section" aria-labelledby="theme-title">
+      <div class="setup-section-heading"><div><h2 id="theme-title">مجموعات بطابع خاص</h2><p>اختر أسلوب لعب الخصم.</p></div><span class="setup-icon">✦</span></div>
+      <div class="theme-groups" role="group" aria-label="أسلوب الخصم">
+        <button class="theme-card selected" type="button" data-theme="balanced" aria-pressed="true"><strong>متوازن</strong><span>أسلوب شامل</span></button>
+        <button class="theme-card" type="button" data-theme="aggressive" aria-pressed="false"><strong>هجومي</strong><span>يفضّل المبادرة</span></button>
+        <button class="theme-card" type="button" data-theme="tactical" aria-pressed="false"><strong>تكتيكي</strong><span>يركّز على الفرص</span></button>
+        <button class="theme-card" type="button" data-theme="defensive" aria-pressed="false"><strong>دفاعي</strong><span>يحمي قطعه</span></button>
+      </div>
+    </section>
+    <section class="setup-section" aria-labelledby="time-title">
+      <div class="setup-section-heading"><div><h2 id="time-title">وقت المباراة</h2><p>اختر وقتاً مناسباً أو العب دون مؤقّت.</p></div><span class="setup-icon">◷</span></div>
+      <div class="time-groups" role="group" aria-label="أوقات المباراة">
+        <button class="time-card selected" type="button" data-time="none" aria-pressed="true"><strong>دون مؤقّت</strong><span>وقت مفتوح</span></button>
+        <button class="time-card" type="button" data-time="1+0" aria-pressed="false"><strong>١ دقيقة</strong><span>طلقة</span></button>
+        <button class="time-card" type="button" data-time="3+0" aria-pressed="false"><strong>٣ دقائق</strong><span>خاطف</span></button>
+        <button class="time-card" type="button" data-time="3+2" aria-pressed="false"><strong>٣ + ٢</strong><span>خاطف</span></button>
+        <button class="time-card" type="button" data-time="5+0" aria-pressed="false"><strong>٥ دقائق</strong><span>خاطف</span></button>
+        <button class="time-card" type="button" data-time="10+0" aria-pressed="false"><strong>١٠ دقائق</strong><span>سريع</span></button>
+        <button class="time-card" type="button" data-time="15+10" aria-pressed="false"><strong>١٥ + ١٠</strong><span>سريع</span></button>
+        <button class="time-card" type="button" data-time="30+0" aria-pressed="false"><strong>٣٠ دقيقة</strong><span>كلاسيكي</span></button>
+      </div>
+    </section>
+    <section class="setup-section" aria-labelledby="analysis-title">
+      <div class="setup-section-heading"><div><h2 id="analysis-title">أدوات التحليل</h2><p>فعّل كل أداة بشكل مستقل.</p></div><span class="setup-icon">⌁</span></div>
+      <div class="analysis-options">
+        <label class="analysis-option"><input id="option-eval-bar" type="checkbox" checked><span class="toggle-mark"></span><span><strong>شريط التقييم</strong><small>أفضلية الأبيض والأسود</small></span></label>
+        <label class="analysis-option"><input id="option-threats" type="checkbox"><span class="toggle-mark"></span><span><strong>أسهم التهديدات</strong><small>النقلات التي تهدد قطعك</small></span></label>
+        <label class="analysis-option"><input id="option-suggestions" type="checkbox" checked><span class="toggle-mark"></span><span><strong>أسهم الاقتراحات</strong><small>إظهار النقلة المقترحة على الرقعة</small></span></label>
+        <label class="analysis-option"><input id="option-move-eval" type="checkbox" checked><span class="toggle-mark"></span><span><strong>تقييم النقلة</strong><small>تصنيف كل نقلة بعد لعبها</small></span></label>
+        <label class="analysis-option"><input id="option-engine" type="checkbox"><span class="toggle-mark"></span><span><strong>تحليل المحرك</strong><small>عرض أفضل اقتراح من المحرك</small></span></label>
+      </div>
+      <p class="engine-note">يستخدم الخصم المحرك لاختيار نقلاته؛ خيار التحليل يتحكّم في عرض اقتراحاته لك.</p>
+    </section>
+    <button class="control-btn primary setup-start" id="start-match">ابدأ المباراة <span aria-hidden="true">←</span></button>
+  </div>
 </section>
 <main class="app" id="game-app" hidden>
   <header class="top"><div class="brand"><div class="brand-mark">♞</div><div><h1>كش مات</h1><p>تدرّب، العب، واكتشف جودة كل نقلة</p></div></div><div class="top-badge">♙ الأبيض أنت &nbsp;·&nbsp; ♟ الأسود الخصم</div></header>
   <div class="layout">
     <section class="play-area">
-      <div class="player-card"><div class="player-info"><div class="avatar">♚</div><div><div class="player-name">الخصم الذكي</div><div class="player-sub" id="opponent-sub">مستوى متوسط</div></div></div><div class="captured" id="captured-black" aria-label="القطع التي خسرها الأسود"></div><div class="mobile-eval"><span id="mobile-eval-value">0.0</span><span class="eval-meter"><i id="mobile-eval-fill"></i></span></div></div>
-      <div class="board-shell"><div class="board" id="board" role="grid" aria-label="رقعة الشطرنج"></div><div class="board-footer"><span class="status-live"><i class="pulse" id="pulse"></i><span id="game-status" role="status" aria-live="polite">دورك — حرّك قطعة بيضاء</span></span><span id="turn-counter">النقلة 1</span></div></div>
-      <div class="player-card" style="margin:10px 0 0"><div class="player-info"><div class="avatar">♔</div><div><div class="player-name">أنت</div><div class="player-sub">تلعب بالقطع البيضاء</div></div></div><div class="captured" id="captured-white" aria-label="القطع التي خسرها الأبيض"></div></div>
+      <div class="player-card"><div class="player-info"><div class="avatar">♚</div><div><div class="player-name">الخصم الذكي</div><div class="player-sub" id="opponent-sub">مستوى متوسط</div></div></div><div class="captured" id="captured-black" aria-label="القطع التي خسرها الأسود"></div><div class="player-clock" id="clock-black" hidden>05:00</div><div class="mobile-eval" id="mobile-eval"><span id="mobile-eval-value">0.0</span><span class="eval-meter"><i id="mobile-eval-fill"></i></span></div></div>
+      <div class="board-shell"><div class="board" id="board" role="grid" aria-label="رقعة الشطرنج"></div><svg class="board-arrows" id="board-arrows" viewBox="0 0 100 100" aria-hidden="true"></svg><div class="board-footer"><span class="status-live"><i class="pulse" id="pulse"></i><span id="game-status" role="status" aria-live="polite">دورك — حرّك قطعة بيضاء</span></span><span id="turn-counter">النقلة 1</span></div></div>
+      <div class="player-card" style="margin:10px 0 0"><div class="player-info"><div class="avatar">♔</div><div><div class="player-name">أنت</div><div class="player-sub">تلعب بالقطع البيضاء</div></div></div><div class="captured" id="captured-white" aria-label="القطع التي خسرها الأبيض"></div><div class="player-clock" id="clock-white" hidden>05:00</div></div>
       <div class="controls"><button class="control-btn primary" id="new-game">لعبة جديدة</button><button class="control-btn" id="undo" title="التراجع عن آخر دور">↶ تراجع</button><button class="control-btn" id="hint">✦ اقترح نقلة</button><button class="control-btn" id="flip">⇅ اقلب الرقعة</button><button class="control-btn" id="back-to-menu">⌂ القائمة</button><button class="control-btn" id="install" hidden>⬇ ثبّت اللعبة</button><span class="desktop-only how"><span class="key">النقر</span> اختر قطعة ثم وجهتها <span class="key">Tab + الأسهم</span> للتنقل</span></div>
     </section>
     <aside class="side">
-      <section class="panel"><div class="panel-heading"><h2>تقييم المباراة</h2><div class="level-control"><span class="small-label">الصعوبة</span><select id="difficulty" aria-label="مستوى صعوبة الخصم"><option value="1">سهل جداً</option><option value="2">سهل</option><option value="3">متوسط</option><option value="4">صعب</option><option value="5">صعب جداً</option><option value="6">المستحيل</option><option value="7">الماستر</option></select></div></div><div class="eval-wrap"><div class="eval-labels"><span>♚</span><span>♔</span></div><div style="display:flex;align-items:center;justify-content:space-between;gap:10px"><div class="eval-bar"><div class="eval-fill" id="eval-fill"></div><div class="eval-mid"></div></div><div><div class="eval-value" id="eval-value">0.0</div><div class="eval-desc" id="eval-desc">الموقف متعادل</div></div></div></div><div class="grade-row"><div class="grade-icon" id="grade-icon">✦</div><div><div class="grade-text" id="grade-text">سيظهر التقييم بعد نقلتك</div><div class="grade-sub" id="grade-sub">يُقيّم المحرك نقلات الطرفين</div></div><div class="grade-pill" id="grade-pill">جاهز</div></div></section>
+      <section class="panel"><div class="panel-heading"><h2>تقييم المباراة</h2><div class="level-control"><span class="small-label">الصعوبة</span><select id="difficulty" aria-label="مستوى صعوبة الخصم"><option value="1">سهل جداً</option><option value="2">سهل</option><option value="3">متوسط</option><option value="4">صعب</option><option value="5">صعب جداً</option><option value="6">المستحيل</option><option value="7">الماستر</option></select></div></div><div class="eval-wrap" id="eval-wrap"><div class="eval-labels"><span>♚</span><span>♔</span></div><div style="display:flex;align-items:center;justify-content:space-between;gap:10px"><div class="eval-bar"><div class="eval-fill" id="eval-fill"></div><div class="eval-mid"></div></div><div><div class="eval-value" id="eval-value">0.0</div><div class="eval-desc" id="eval-desc">الموقف متعادل</div></div></div></div><div class="grade-row" id="grade-row"><div class="grade-icon" id="grade-icon">✦</div><div><div class="grade-text" id="grade-text">سيظهر التقييم بعد نقلتك</div><div class="grade-sub" id="grade-sub">يُقيّم المحرك نقلات الطرفين</div></div><div class="grade-pill" id="grade-pill">جاهز</div></div></section>
       <section class="panel moves-panel"><div class="panel-heading"><h2>سجل النقلات</h2><span class="small-label" id="move-count">0 نقلة</span></div><div class="moves" id="moves"><div class="empty-moves">ابدأ المباراة بأول نقلة لك ♙</div></div></section>
-      <section class="panel"><div class="panel-heading"><h2>كيف يُقيّم المحرك؟</h2><span class="small-label">تحليل فوري</span></div><div class="hint-box">يقارن المحرك نقلتك بأفضل اختيار متاح، ثم يمنحها تقديراً. ويقيّم نقلات الخصم بالطريقة نفسها. الأرقام الموجبة تعني أفضلية للأبيض، والسالبة أفضلية للأسود.</div></section>
+      <section class="panel engine-panel" id="engine-panel" hidden><div class="panel-heading"><h2>تحليل المحرك</h2><span class="small-label">أفضل اقتراح</span></div><div class="hint-box" id="engine-line">سيظهر اقتراح المحرك هنا بعد تحليل النقلة.</div></section>
     </aside>
   </div>
 </main>
 <div class="overlay" id="promotion-overlay"><div class="dialog"><h3>ترقية البيدق</h3><p>اختر القطعة التي تريد الترقية إليها</p><div class="promotion-options" id="promotion-options"></div></div></div>
 <div class="overlay" id="end-overlay"><div class="dialog"><div class="end-icon" id="end-icon">♛</div><div class="end-title" id="end-title">انتهت المباراة</div><div class="end-sub" id="end-sub"></div><button class="control-btn primary" id="end-new">لعبة جديدة</button></div></div>
-<script type="module" src="./src/main.js?v=1.0.1-r2"></script>
+<script type="module" src="./src/main.js"></script>
 </body>
 </html>
